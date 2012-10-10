@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import t2d.util.bean.Column;
+
 /**
  * @author <a href="mailto:xiaowei.hu@renren-inc.com">Xiaowei Hu</a>
  * @version 1.0 2012-10-10 下午07:24:10
@@ -94,19 +96,19 @@ public class JdbcConnection {
             }});
     }
     
-    public static List<String> getAllColumnsOfTab(final String schemaName, final String tabName) {
-        return (List<String>) query(new Session<List<String>>(){
+    public static List<Column> getAllColumnsOfTab(final String schemaName, final String tabName) {
+        return (List<Column>) query(new Session<List<Column>>(){
 
             @Override
-            public List<String> done(Connection conn) {
+            public List<Column> done(Connection conn) {
                 
-                List<String> result = new ArrayList<String>();
+                List<Column> result = new ArrayList<Column>();
                 try {
                     DatabaseMetaData dbmd = conn.getMetaData();
                     ResultSet rs = dbmd.getColumns(schemaName, null, tabName, null);
                     
                     while (rs.next()) {
-                        result.add(rs.getString(3));
+                        result.add(new Column(rs.getString(4), rs.getString(6)));
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -119,5 +121,6 @@ public class JdbcConnection {
     public static void main(String[] args) {
         System.out.println(getAllCatalogs());
         System.out.println(getAllTables("games_kp"));
+        System.out.println(getAllColumnsOfTab("games_kp", "user_info"));
     }
 }
