@@ -2,7 +2,7 @@
  * $Id$
  * Copyright 2012-2014 Oak Pacific Interactive. All rights reserved.
  */
-package util;
+package t2d.util;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
