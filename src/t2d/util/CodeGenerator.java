@@ -57,13 +57,17 @@ public class CodeGenerator {
             
             //class
             out.println();
-            out.println("public Class " + cls.getClsName() + " {");
+            out.println("public class " + cls.getClsName() + " {");
             
             //field
             for (Field field : cls.getListField()) {
                 out.println();
                 out.println("    private " + field.getType().javaType + " " + field.getFieldName() + ";");
             }
+            
+            //default constructor
+            out.println();
+            out.println("    public " + cls.getClsName() + "() {}");
             
             //getter and setter
             for (Field field : cls.getListField()) {
