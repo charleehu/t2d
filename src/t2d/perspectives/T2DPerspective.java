@@ -60,8 +60,7 @@ public class T2DPerspective implements IPerspectiveFactory {
 				IPageLayout.LEFT,
 				0.25f,
 				factory.getEditorArea());
-		topLeft.addView(IPageLayout.ID_RES_NAV);
-		topLeft.addView("org.eclipse.jdt.junit.ResultView"); //NON-NLS-1
+		topLeft.addView("t2d.views.T2DView");
 		
 		factory.addFastView("org.eclipse.team.ccvs.ui.RepositoriesView",0.50f); //NON-NLS-1
 		factory.addFastView("org.eclipse.team.sync.views.SynchronizeView", 0.50f); //NON-NLS-1
