@@ -29,10 +29,6 @@
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
             targetID="t2d.perspectives.T2DPerspective">
-         <view
-               ratio="0.5"
-               id="t2d.views.T2DView">
-         </view>
       </perspectiveExtension>
    </extension>
    <extension
