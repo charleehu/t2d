@@ -45,7 +45,9 @@ public class CodeGenerator {
             file.createNewFile();
             
             out = new PrintWriter(file);
-            out.println("/**\n * generate by t2d\n */");
+            out.println("/**");
+            out.println(" * generate by t2d");
+            out.println(" */");
             
             //package
             
@@ -127,7 +129,7 @@ public class CodeGenerator {
     
     public static void main(String[] args) {
         
-        CodeGenerator cg = new CodeGenerator(new DefaultNameConvertor(), JdbcUtils.getTable("games_kp", "user_info"));
+        CodeGenerator cg = new CodeGenerator(new DefaultNameConvertor(), JdbcUtils.getTable("games_kp", "user_gift_box"));
         cg.generate();
     }
 }
